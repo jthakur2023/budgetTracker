@@ -1,5 +1,8 @@
 # Budget Tracker
-
+Group Members: </br>
+Jaishri Thakur </br>
+William Watson </br>
+Takuro Fukuda </br>
 
 ## Introduction
 
