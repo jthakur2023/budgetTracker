@@ -1,19 +1,20 @@
 # Budget Tracker
-<br><br
-##Introduction
 
-##Storyboard
 
-##Functional Requirements
+## Introduction
 
-##Class Diagram
+## Storyboard
 
-##Class Diagram Description
+## Functional Requirements
 
-##Product Backlog
+## Class Diagram
 
-##Scrumboard
+## Class Diagram Description
 
-##Scrum Roles
+## Product Backlog
 
-##Scrum meeting method
+## Scrumboard
+
+## Scrum Roles
+
+## Scrum meeting method
