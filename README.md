@@ -16,8 +16,9 @@
 ## Scrumboard
 
 ## Scrum Roles
-Scrum Master: Jaishri Thakur </br>
-Product Owner:    </br>
-Team:
+Scrum Master/Product Owner/Team: Jaishri Thakur </br>
+Frontend Developer:    </br>
+Integration Developer:
 
 ## Scrum meeting method
+Meetings are on Teams, Friday's at 11:30 am. 
