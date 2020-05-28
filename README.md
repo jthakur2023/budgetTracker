@@ -9,7 +9,7 @@ Takuro Fukuda </br>
 ## Storyboard
 
 ## Functional Requirements
-As a user I want to be able to store my budget in the application
+#### As a user I want to be able to store my budget in the application
 Given:
 * I am aware of my budget
 * I have not made any changes to my budget
@@ -19,7 +19,7 @@ When:
 Then:
 * When I close and return to the app my budget should be $1000
 
-As a user I want to be able to increment my budget by a set amount at a set time interval
+#### As a user I want to be able to increment my budget by a set amount at a set time interval
 Given:
 * I have setup my budget on the app
 When:
@@ -27,8 +27,7 @@ When:
 Then:
 * At the first of every month my budget should increase by $3000
 
-As a user I would like to be able to set aside a certain amount of money to be reserved in my budget at a set time interval
-
+#### As a user I would like to be able to set aside a certain amount of money to be reserved in my budget at a set time interval
 Given:
 * I have a budget setup on the app
 When:
