@@ -16,8 +16,8 @@
 ## Scrumboard
 
 ## Scrum Roles
-Scrum Master: Jaishri Thakur
-Product Owner:
+Scrum Master: Jaishri Thakur </br>
+Product Owner:    </br>
 Team:
 
 ## Scrum meeting method
