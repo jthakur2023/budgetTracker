@@ -35,6 +35,14 @@ Takuro Fukuda </br>
 ###### Then:
 * On the budget screen an indicator should display showing $2000 deducted from the budget due to the "Bills" item
 
+#### As a user I would like to be alerted when I have spent over 90% of my budget and/or I am over my budget
+###### Given:
+* My budget is $500
+###### When:
+* I have spent at least $450 or over $500
+###### Then:
+* I should be alerted that I am nearing passing my budget, or that I have already passed my budget
+
 ## Class Diagram
 
 ## Class Diagram Description
