@@ -7,7 +7,7 @@ Takuro Fukuda </br>
 ## Introduction
 
 ## Storyboard
-
+https://www.fluidui.com/editor/live/preview/cF96UlQ0RDJjTWRXaFZmWkpvQXE5Z21oa2JBcTJuT3JONg==
 ## Functional Requirements
 #### As a user I want to be able to store my budget in the application
 ###### Given:
