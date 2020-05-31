@@ -47,10 +47,6 @@ https://www.fluidui.com/editor/live/preview/cF96UlQ0RDJjTWRXaFZmWkpvQXE5Z21oa2JB
 
 ## Class Diagram Description
 
-## Product Backlog
-
-## Scrumboard
-
 ## Scrum Roles
 Scrum Master/Product Owner/Team: Jaishri Thakur </br>
 Frontend Developer:    </br>
