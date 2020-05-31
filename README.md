@@ -49,8 +49,8 @@ https://www.fluidui.com/editor/live/preview/cF96UlQ0RDJjTWRXaFZmWkpvQXE5Z21oa2JB
 
 ## Scrum Roles
 Scrum Master/Product Owner/Team: Jaishri Thakur </br>
-Frontend Developer:    </br>
-Integration Developer:
+Frontend Developer: William Watson   </br>
+Integration Developer: Takuro Fukuda
 
 ## Scrum meeting method
 Meetings are on Teams, Friday's at 11:30 am. 
