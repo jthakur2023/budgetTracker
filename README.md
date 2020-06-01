@@ -5,6 +5,10 @@ William Watson </br>
 Takuro Fukuda </br>
 
 ## Introduction
+Always spending a lot of money and want to control it? The Budget Tracker is the app for you! The Budget Tracker can</br>
+* Can categorize it into different categories
+* Let's you know when you're about to go over board
+* If you don't know how to budget yourself, the Budget Tracker can do it for you!
 
 ## Storyboard
 https://www.fluidui.com/editor/live/preview/cF96UlQ0RDJjTWRXaFZmWkpvQXE5Z21oa2JBcTJuT3JONg==
@@ -32,7 +36,7 @@ https://www.fluidui.com/editor/live/preview/cF96UlQ0RDJjTWRXaFZmWkpvQXE5Z21oa2JB
 * I have a budget setup on the app
 ###### When:
 * I input $2000 set to be taken from the budget a month labled "Bills" at the first of every month
-###### Then:
+###### Then:-
 * On the budget screen an indicator should display showing $2000 deducted from the budget due to the "Bills" item
 
 #### As a user I would like to be alerted when I have spent over 90% of my budget and/or I am over my budget
