@@ -48,6 +48,7 @@ https://www.fluidui.com/editor/live/preview/cF96UlQ0RDJjTWRXaFZmWkpvQXE5Z21oa2JB
 * I should be alerted that I am nearing passing my budget, or that I have already passed my budget
 
 ## Class Diagram
+https://github.com/jthakur2023/budgetTracker/blob/master/BudgetTracker.pdf
 
 ## Class Diagram Description
 
