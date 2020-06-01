@@ -51,6 +51,9 @@ https://www.fluidui.com/editor/live/preview/cF96UlQ0RDJjTWRXaFZmWkpvQXE5Z21oa2JB
 https://github.com/jthakur2023/budgetTracker/blob/master/BudgetTracker.pdf
 
 ## Class Diagram Description
+edu.uc.budgettracker.ui: Defining UI. Also describing how will user intract with our app to manage their budgets.
+edu.uc.budgettracker.dto: Defining Data types. This one is showing what will user required to be input to complete their missions.
+edu.uc.budgettracker.dao: This one is defining about mostly for the base thing. By adding interfaces, we can make contract for the data and by adding database, we can store the data so use can continue work seamlessly without retyping.
 
 ## Scrum Roles
 Scrum Master/Product Owner/Team: Jaishri Thakur </br>
