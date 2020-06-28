@@ -3,44 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.BudgetScreen">
+    android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnAddBudget"
+        android:id="@+id/btnDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="@string/addBudget"
+        android:text="@string/done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtBudgets"
-        android:layout_width="91dp"
+        android:id="@+id/txtAddBudget"
+        android:layout_width="141dp"
         android:layout_height="33dp"
         android:layout_marginStart="160dp"
         android:layout_marginTop="130dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="568dp"
-        android:text="@string/budgets"
+        android:text="@string/addBudget"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvBudgets"
-        android:layout_width="392dp"
-        android:layout_height="343dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="213dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

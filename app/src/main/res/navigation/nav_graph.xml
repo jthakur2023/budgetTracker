@@ -3,15 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/BudgetScreen">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/BudgetScreen"
         android:name="org.uc.budgettracker.ui.BudgetScreen"
-        android:label="TESSSSSSSSST"
+        android:label="Budget Screen"
         tools:layout="@layout/budget_screen">
-        <!-- <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" /> -->
+        <action
+            android:id="@+id/action_BudgetScreen_to_AddBudget"
+            app:destination="@id/AddBudget" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddBudget"
+        android:name="org.uc.budgettracker.ui.AddBudget"
+        android:label="Add Budget"
+        tools:layout="@layout/add_budget">
+        <action
+            android:id="@+id/action_AddBudget_Done"
+            app:destination="@id/BudgetScreen" />
     </fragment>
 </navigation>

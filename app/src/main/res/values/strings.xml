@@ -4,4 +4,5 @@
     <!-- Strings used for controls/labels-->
     <string name="addBudget">Add Budget</string>
     <string name="budgets">Budgets</string>
+    <string name="done">Done</string>
 </resources>
