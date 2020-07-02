@@ -9,9 +9,7 @@ import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import org.uc.budgettracker.R
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
+/** A simple [Fragment] subclass as the default destination in the navigation. */
 class BudgetScreen : Fragment() {
 
     override fun onCreateView(
@@ -26,7 +24,8 @@ class BudgetScreen : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.btnAddBudget).setOnClickListener {
-            findNavController().navigate(R.id.action_BudgetScreen_to_AddBudget)
+            //redirect user to add budget page
+            findNavController().navigate(R.id.action_AddBudget)
         }
     }
 }

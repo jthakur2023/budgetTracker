@@ -11,7 +11,7 @@
         android:label="Budget Screen"
         tools:layout="@layout/budget_screen">
         <action
-            android:id="@+id/action_BudgetScreen_to_AddBudget"
+            android:id="@+id/action_AddBudget"
             app:destination="@id/AddBudget" />
     </fragment>
 
@@ -19,7 +19,8 @@
         android:id="@+id/AddBudget"
         android:name="org.uc.budgettracker.ui.AddBudget"
         android:label="Add Budget"
-        tools:layout="@layout/add_budget">
+        tools:layout="@layout/add_budget"
+        app:startDestination="@id/action_AddBudget_Done">
         <action
             android:id="@+id/action_AddBudget_Done"
             app:destination="@id/BudgetScreen" />

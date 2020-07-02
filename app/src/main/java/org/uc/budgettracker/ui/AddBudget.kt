@@ -23,6 +23,7 @@ class AddBudget : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.btnDone).setOnClickListener {
+            // redirect user to budget home page
             findNavController().navigate(R.id.action_AddBudget_Done)
         }
     }
