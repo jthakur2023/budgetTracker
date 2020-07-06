@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/BudgetScreen">
+
+    <fragment
+        android:id="@+id/BudgetScreen"
+        android:name="org.uc.budgettracker.ui.BudgetScreen"
+        android:label="Budget Screen"
+        tools:layout="@layout/budget_screen">
+        <action
+            android:id="@+id/action_BudgetScreen_to_AddBudget"
+            app:destination="@id/AddBudget" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddBudget"
+        android:name="org.uc.budgettracker.ui.AddBudget"
+        android:label="Add Budget"
+        tools:layout="@layout/add_budget">
+        <action
+            android:id="@+id/action_AddBudget_Done"
+            app:destination="@id/BudgetScreen" />
+    </fragment>
+</navigation>
