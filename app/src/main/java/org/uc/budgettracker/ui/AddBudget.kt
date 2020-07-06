@@ -21,7 +21,7 @@ class AddBudget : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        // Add click listener to add menu items
         view.findViewById<Button>(R.id.btnDone).setOnClickListener {
             findNavController().navigate(R.id.action_AddBudget_Done)
         }
