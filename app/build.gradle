@@ -3,12 +3,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    // Changed target SDK version to the updated 30
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "org.uc.budgettracker"
         minSdkVersion 22
+        // Changed target SDK version to the updated 30
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
