@@ -20,16 +20,71 @@
         android:id="@+id/txtAddBudget"
         android:layout_width="141dp"
         android:layout_height="33dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="568dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="250dp"
         android:text="@string/addBudget"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ptBudgetName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toEndOf="@+id/ptBudgetName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ptBudgetName"
+        android:layout_width="258dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/name"
+        app:layout_constraintBottom_toTopOf="@+id/ptBudget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtAddBudget" />
+
+    <EditText
+        android:id="@+id/ptBudget"
+        android:layout_width="258dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/budget"
+        app:layout_constraintBottom_toTopOf="@+id/ptIncome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptBudgetName" />
+
+    <EditText
+        android:id="@+id/ptIncome"
+        android:layout_width="258dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/income"
+        app:layout_constraintBottom_toTopOf="@+id/spTimeInterval"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptBudget" />
+
+    <Spinner
+        android:id="@+id/spTimeInterval"
+        android:layout_width="258dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="167dp"
+        android:entries="@array/timeIntervals"
+        app:layout_constraintBottom_toTopOf="@+id/btnDone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptIncome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
