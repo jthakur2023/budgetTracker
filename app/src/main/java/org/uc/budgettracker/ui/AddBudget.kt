@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.add_budget.*
 import org.uc.budgettracker.R
 import org.uc.budgettracker.dto.Budget
 import org.uc.budgettracker.utils.DatabaseFunctions
+import org.uc.budgettracker.utils.Util.Companion.isNumber
 
 class AddBudget : Fragment() {
 
@@ -27,11 +29,14 @@ class AddBudget : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.btnDone).setOnClickListener {
-            var budget: Budget = getBudgetData()
-
-            DatabaseFunctions.saveBudget(budget)
-
-            findNavController().navigate(R.id.action_AddBudget_Done)
+            if(inputValid()) {
+                var budget: Budget = getBudgetData()
+                DatabaseFunctions.saveBudget(budget)
+                findNavController().navigate(R.id.action_AddBudget_Done)
+            }
+            else {
+                Toast.makeText(context, "Please verify your input is correct.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -47,4 +52,10 @@ class AddBudget : Fragment() {
         return budget
     }
 
+    private fun inputValid() : Boolean {
+        var amountValue = ptBudget.text.toString()
+        var incomeValue = ptIncome.text.toString()
+
+        return isNumber(amountValue) && isNumber(incomeValue)
+    }
 }
