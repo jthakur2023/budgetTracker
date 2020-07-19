@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "118660520015",
+    "firebase_url": "https://budget-tracker-6e818.firebaseio.com",
+    "project_id": "budget-tracker-6e818",
+    "storage_bucket": "budget-tracker-6e818.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118660520015:android:259252e2d6e24eed06b23a",
+        "android_client_info": {
+          "package_name": "org.uc.budgettracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118660520015-sqj030925q4sepgfp6lr3900jc06u26q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnvpNUJF5GilYT7FzFLK-10G4XB--VveE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118660520015-sqj030925q4sepgfp6lr3900jc06u26q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import org.uc.budgettracker.R
+import org.uc.budgettracker.utils.DatabaseFunctions
 
 class MainActivity : AppCompatActivity() {
 

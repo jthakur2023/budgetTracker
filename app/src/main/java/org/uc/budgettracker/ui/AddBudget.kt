@@ -26,4 +26,5 @@ class AddBudget : Fragment() {
             findNavController().navigate(R.id.action_AddBudget_Done)
         }
     }
+
 }
