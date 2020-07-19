@@ -1,11 +1,11 @@
 package org.uc.budgettracker.ui
 
 import android.os.Bundle
+import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import org.uc.budgettracker.R
-import org.uc.budgettracker.utils.DatabaseFunctions
 
 class MainActivity : AppCompatActivity() {
 
