@@ -30,7 +30,7 @@ class AddBudget : Fragment() {
 
         view.findViewById<Button>(R.id.btnDone).setOnClickListener {
             if(inputValid()) {
-                var budget: Budget = getBudgetData()
+                val budget: Budget = getBudgetData()
                 DatabaseFunctions.saveBudget(budget)
                 findNavController().navigate(R.id.action_AddBudget_Done)
             }

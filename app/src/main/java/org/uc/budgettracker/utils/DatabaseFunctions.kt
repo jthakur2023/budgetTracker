@@ -6,9 +6,9 @@ import org.uc.budgettracker.dto.Budget
 
 class DatabaseFunctions {
     companion object{
-        lateinit var database: DatabaseReference
+        private lateinit var database: DatabaseReference
 
-        fun saveBudget(budget: Budget){
+        internal fun saveBudget(budget: Budget){
             database = FirebaseDatabase.getInstance().getReference("/Budget")
 
             val budgetId = database.push().key!!
