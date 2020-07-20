@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.add_budget.*
 import org.uc.budgettracker.R
 import org.uc.budgettracker.dto.Budget
 import org.uc.budgettracker.utils.DatabaseFunctions
-import org.uc.budgettracker.utils.Util.Companion.isNumber
 
 class AddBudget : Fragment() {
 
@@ -29,14 +28,9 @@ class AddBudget : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.btnDone).setOnClickListener {
-            if(inputValid()) {
                 val budget: Budget = getBudgetData()
                 DatabaseFunctions.saveBudget(budget)
                 findNavController().navigate(R.id.action_AddBudget_Done)
-            }
-            else {
-                Toast.makeText(context, "Please verify your input is correct.", Toast.LENGTH_SHORT).show()
-            }
         }
     }
 
@@ -50,12 +44,5 @@ class AddBudget : Fragment() {
         budget.deviceId = Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
 
         return budget
-    }
-
-    private fun inputValid() : Boolean {
-        var amountValue = ptBudget.text.toString()
-        var incomeValue = ptIncome.text.toString()
-
-        return isNumber(amountValue) && isNumber(incomeValue)
     }
 }
