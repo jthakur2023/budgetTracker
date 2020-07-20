@@ -2,12 +2,10 @@ package org.uc.budgettracker.ui
 
 import android.os.Bundle
 import android.provider.Settings
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.add_budget.*
@@ -35,6 +33,12 @@ class AddBudget : Fragment() {
         }
     }
 
+    /**
+     * Get budget data from dto object which collects data from
+     * user input.
+     *
+     * @return budget object that contains data such as name, amount, income, interval, and deviceId
+     */
     private fun getBudgetData() : Budget {
         var budget = Budget()
 
@@ -46,7 +50,6 @@ class AddBudget : Fragment() {
             budget.interval = enumValueOf(spTimeInterval.selectedItem.toString().toUpperCase())
             budget.deviceId = Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
         } catch (e: Exception){e.printStackTrace()}
-
 
         return budget
     }
