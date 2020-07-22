@@ -18,13 +18,14 @@ class BudgetScreen : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        /** Inflate the layout for this fragment */
         return inflater.inflate(R.layout.budget_screen, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /** when the user clicks the Add budget button, redirect to the AddBudget fragment */
         view.findViewById<Button>(R.id.btnAddBudget).setOnClickListener {
             findNavController().navigate(R.id.action_BudgetScreen_to_AddBudget)
         }
