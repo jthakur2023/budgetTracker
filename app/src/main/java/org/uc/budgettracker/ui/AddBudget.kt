@@ -17,6 +17,10 @@ import org.uc.budgettracker.utils.Util.Companion.isNumber
 
 class AddBudget : Fragment() {
 
+    private var budget = Budget()
+    private lateinit var amountValue: String
+    private lateinit var incomeValue: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,9 +34,10 @@ class AddBudget : Fragment() {
 
         view.findViewById<Button>(R.id.btnDone).setOnClickListener {
             if(inputValid()) {
-                var budget: Budget = getBudgetData()
+                val budget: Budget = getBudgetData()
                 DatabaseFunctions.saveBudget(budget)
                 findNavController().navigate(R.id.action_AddBudget_Done)
+                Toast.makeText(context, "Budget Added!", Toast.LENGTH_SHORT).show()
             }
             else {
                 Toast.makeText(context, "Please verify your input is correct.", Toast.LENGTH_SHORT).show()
@@ -41,8 +46,6 @@ class AddBudget : Fragment() {
     }
 
     private fun getBudgetData() : Budget {
-        var budget = Budget()
-
         budget.amount = ptBudget.text.toString().toDouble()
         budget.income = ptIncome.text.toString().toDouble()
         budget.name = ptBudgetName.text.toString()
@@ -53,8 +56,8 @@ class AddBudget : Fragment() {
     }
 
     private fun inputValid() : Boolean {
-        var amountValue = ptBudget.text.toString()
-        var incomeValue = ptIncome.text.toString()
+        amountValue = ptBudget.text.toString()
+        incomeValue = ptIncome.text.toString()
 
         return isNumber(amountValue) && isNumber(incomeValue)
     }
