@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.add_budget.*
 import org.uc.budgettracker.R
 import org.uc.budgettracker.dto.Budget
 import org.uc.budgettracker.utils.DatabaseFunctions
-import org.uc.budgettracker.utils.NumberValidation.Companion.isNumber
+import org.uc.budgettracker.utils.Util.Companion.isNumber
 
 class AddBudget : Fragment() {
 
@@ -21,7 +21,7 @@ class AddBudget : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /** Inflate the layout for this fragment */
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.add_budget, container, false)
     }
 
@@ -32,13 +32,10 @@ class AddBudget : Fragment() {
             if(inputValid()) {
                 var budget: Budget = getBudgetData()
                 DatabaseFunctions.saveBudget(budget)
-                /** let user know that the budget saved */
-                Toast.makeText(context, "Budget Saved Successfully!", Toast.LENGTH_SHORT)
                 findNavController().navigate(R.id.action_AddBudget_Done)
             }
             else {
-                /** changed to provide the user with more details about what the error is */
-                Toast.makeText(context, "Please verify your input is correct; only numeric values are accepted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Please verify your input is correct.", Toast.LENGTH_SHORT).show()
             }
         }
     }
