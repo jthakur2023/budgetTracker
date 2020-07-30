@@ -6,6 +6,6 @@ data class Budget(var name: String = "", var amount: Double = 0.0, var income: D
     }
 
     override fun toString(): String {
-        return super.toString()
+        return "$name $amount $income $interval $deviceId"
     }
 }
