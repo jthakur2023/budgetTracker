@@ -1,24 +1,39 @@
 package org.uc.budgettracker.utils
 
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 import org.uc.budgettracker.dto.Budget
 
 class DatabaseFunctions {
     companion object {
-        private lateinit var database: DatabaseReference
+        lateinit var firestore : FirebaseFirestore
+
+        init {
+            firestore = FirebaseFirestore.getInstance()
+            firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
+        }
 
         /**
          * Save budget data to the firebase database
          *
-         * @param budget Budget data object that has different information such as name, amount,
-         * income, interval, and deviceId
+         * @param budget Budget data object with budget data
+         *
+         * @return Boolean indicating success or failure
          */
-        internal fun saveBudget(budget: Budget){
-            database = FirebaseDatabase.getInstance().getReference("/Budget")
+        fun saveBudget(budget: Budget) : Boolean {
+            var success = false
 
-            val budgetId = database.push().key!!
-            database.child(budgetId).setValue(budget)
+            firestore.collection("Budget")
+                .document()
+                .set(budget)
+                .addOnSuccessListener {
+                    success = true
+                }
+                .addOnFailureListener {
+                    success = false
+                }
+
+            return success
         }
     }
 }

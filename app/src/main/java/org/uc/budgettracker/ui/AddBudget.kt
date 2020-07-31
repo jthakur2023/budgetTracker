@@ -43,13 +43,17 @@ class AddBudget : Fragment() {
         var budget = Budget()
 
         try {
-            if(budget.name.isNotEmpty())
+            if(ptBudgetName.text.toString().isNotEmpty()) {
                 budget.name = ptBudgetName.text.toString()
-            budget.amount = ptBudget.text.toString().toDouble()
-            budget.income = ptIncome.text.toString().toDouble()
-            budget.interval = enumValueOf(spTimeInterval.selectedItem.toString().toUpperCase())
-            budget.deviceId = Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
-        } catch (e: Exception){e.printStackTrace()}
+                budget.amount = ptBudget.text.toString().toDouble()
+                budget.income = ptIncome.text.toString().toDouble()
+                budget.interval = enumValueOf(spTimeInterval.selectedItem.toString().toUpperCase())
+                budget.deviceId = Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
+            }
+        }
+        catch (e: Exception) {
+            e.printStackTrace()
+        }
 
         return budget
     }
