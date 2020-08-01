@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.add_budget.*
 import org.uc.budgettracker.R
 import org.uc.budgettracker.dto.Budget
 import org.uc.budgettracker.utils.DatabaseFunctions
-import java.lang.Exception
 
 class AddBudget : Fragment() {
 
@@ -56,12 +55,19 @@ class AddBudget : Fragment() {
         budget.amount = ptBudget.text.toString().toDouble()
         budget.income = ptIncome.text.toString().toDouble()
         budget.interval = enumValueOf(spTimeInterval.selectedItem.toString().toUpperCase())
-        budget.deviceId = Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
+        budget.deviceId = getDeviceId()
         }
         catch(e: Exception) {
             // Returns blank budget if there's an error
             return Budget()
         }
         return budget
+    }
+
+    /**
+     * Gets unique device id from phone for querying the database
+     */
+    fun getDeviceId() : String {
+        return Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
     }
 }

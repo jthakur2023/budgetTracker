@@ -2,24 +2,32 @@ package org.uc.budgettracker.ui
 
 import android.os.Bundle
 import android.provider.Settings
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.budget_screen.*
 import org.uc.budgettracker.R
 import org.uc.budgettracker.dto.Budget
+import org.uc.budgettracker.utils.DatabaseFunctions
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class BudgetScreen : Fragment() {
+
+    private var _budgets = MutableLiveData<List<Budget>>()
+    private var budgetList = ArrayList<Budget>()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -36,20 +44,25 @@ class BudgetScreen : Fragment() {
             findNavController().navigate(R.id.action_BudgetScreen_to_AddBudget)
         }
 
-        var budgets : ArrayList<Budget> = ArrayList()
-        var budget = Budget("Electric Bill", 100.0, 120.0, Budget.TimeInterval.MONTHLY, Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID))
+        setupRvBudgets()
+    }
 
-        budgets.add(budget)
-        budgets.add(budget)
-        budgets.add(budget)
-        budgets.add(budget)
-        budgets.add(budget)
+    private fun setupRvBudgets() {
+        _budgets = DatabaseFunctions.fetchBudgets(getDeviceId())
+
+        budgets.observe(viewLifecycleOwner, Observer {
+                budgets ->
+            budgetList.removeAll(budgetList)
+            budgetList.addAll(budgets)
+
+            rvBudgets.adapter!!.notifyDataSetChanged()
+        })
 
         // Link data to rvBudgets
         rvBudgets.hasFixedSize()
         rvBudgets.layoutManager = LinearLayoutManager(context)
         rvBudgets.itemAnimator = DefaultItemAnimator()
-        rvBudgets.adapter = BudgetsAdapter(budgets, R.layout.budget_layout)
+        rvBudgets.adapter = BudgetsAdapter(budgetList, R.layout.budget_layout)
     }
 
 
@@ -70,6 +83,25 @@ class BudgetScreen : Fragment() {
         }
 
     }
+
+    /**
+     * Gets unique device id from phone for querying the database
+     */
+    fun getDeviceId() : String {
+        return Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
+    }
+
+    internal fun fetchBudgets() {
+        var budgetsCollection = DatabaseFunctions.firestore.collection("Budget")
+        budgetsCollection.addSnapshotListener {value: QuerySnapshot?, error: FirebaseFirestoreException? ->
+            var innerBudgets = value?.toObjects(Budget::class.java)
+            _budgets.postValue(innerBudgets)
+        }
+    }
+
+    internal var budgets : MutableLiveData<List<Budget>>
+        get() {return _budgets}
+        set(value) {_budgets = value}
 
     inner class BudgetViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         private var tvBudgetName : TextView = itemView.findViewById(R.id.tvBudgetName)
