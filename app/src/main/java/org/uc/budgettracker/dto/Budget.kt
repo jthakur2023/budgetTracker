@@ -8,4 +8,8 @@ data class Budget(var name: String = "", var amount: Double = 0.0, var income: D
     override fun toString(): String {
         return "$name $amount $income $interval $deviceId"
     }
+
+    fun noBlankFields(): Boolean {
+        return (name.isNotBlank() && amount.toString().isNotBlank() && income.toString().isNotBlank())
+    }
 }

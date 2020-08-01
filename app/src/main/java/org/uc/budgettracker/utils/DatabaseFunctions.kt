@@ -21,19 +21,10 @@ class DatabaseFunctions {
          * @return Boolean indicating success or failure
          */
         fun saveBudget(budget: Budget) : Boolean {
-            var success = false
-
-            firestore.collection("Budget")
+           return firestore.collection("Budget")
                 .document()
                 .set(budget)
-                .addOnSuccessListener {
-                    success = true
-                }
-                .addOnFailureListener {
-                    success = false
-                }
-
-            return success
+                .isSuccessful
         }
     }
 }

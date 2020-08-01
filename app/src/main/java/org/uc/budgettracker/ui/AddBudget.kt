@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.add_budget.*
 import org.uc.budgettracker.R
 import org.uc.budgettracker.dto.Budget
 import org.uc.budgettracker.utils.DatabaseFunctions
+import java.lang.Exception
 
 class AddBudget : Fragment() {
 
@@ -28,8 +30,15 @@ class AddBudget : Fragment() {
 
         view.findViewById<Button>(R.id.btnDone).setOnClickListener {
                 val budget: Budget = getBudgetData()
-                DatabaseFunctions.saveBudget(budget)
-                findNavController().navigate(R.id.action_AddBudget_Done)
+
+                if (budget.noBlankFields()) {
+                    DatabaseFunctions.saveBudget(budget)
+                    Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_AddBudget_Done)
+                }
+                else {
+                    Toast.makeText(context, "Please check your input", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 
@@ -43,18 +52,16 @@ class AddBudget : Fragment() {
         var budget = Budget()
 
         try {
-            if(ptBudgetName.text.toString().isNotEmpty()) {
-                budget.name = ptBudgetName.text.toString()
-                budget.amount = ptBudget.text.toString().toDouble()
-                budget.income = ptIncome.text.toString().toDouble()
-                budget.interval = enumValueOf(spTimeInterval.selectedItem.toString().toUpperCase())
-                budget.deviceId = Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
-            }
+        budget.name = ptBudgetName.text.toString()
+        budget.amount = ptBudget.text.toString().toDouble()
+        budget.income = ptIncome.text.toString().toDouble()
+        budget.interval = enumValueOf(spTimeInterval.selectedItem.toString().toUpperCase())
+        budget.deviceId = Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
         }
-        catch (e: Exception) {
-            e.printStackTrace()
+        catch(e: Exception) {
+            // Returns blank budget if there's an error
+            return Budget()
         }
-
         return budget
     }
 }
