@@ -19,19 +19,21 @@
 
     <TextView
         android:id="@+id/txtBudgets"
-        android:layout_width="91dp"
-        android:layout_height="33dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="568dp"
+        android:layout_marginBottom="580dp"
         android:text="@string/budgets"
         android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/rvBudgets"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBudgets"
@@ -47,5 +49,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="6dp"
+        android:textSize="16sp"
+        android:text="@string/name"
+        app:layout_constraintBottom_toTopOf="@+id/rvBudgets"
+        app:layout_constraintEnd_toStartOf="@+id/txtBudgets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtRemaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="16sp"
+        android:text="@string/remaining"
+        app:layout_constraintBottom_toTopOf="@+id/rvBudgets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtBudgets"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59000003" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

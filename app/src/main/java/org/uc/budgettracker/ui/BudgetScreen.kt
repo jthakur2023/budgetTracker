@@ -14,17 +14,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.budget_screen.*
 import org.uc.budgettracker.R
+import org.uc.budgettracker.dao.OnBudgetItemClickListener
 import org.uc.budgettracker.dto.Budget
 import org.uc.budgettracker.utils.DatabaseFunctions
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class BudgetScreen : Fragment() {
+class BudgetScreen : Fragment(), OnBudgetItemClickListener{
 
     private var _budgets = MutableLiveData<List<Budget>>()
     private var budgetList = ArrayList<Budget>()
@@ -62,11 +61,10 @@ class BudgetScreen : Fragment() {
         rvBudgets.hasFixedSize()
         rvBudgets.layoutManager = LinearLayoutManager(context)
         rvBudgets.itemAnimator = DefaultItemAnimator()
-        rvBudgets.adapter = BudgetsAdapter(budgetList, R.layout.budget_layout)
+        rvBudgets.adapter = BudgetsAdapter(budgetList, R.layout.budget_layout, this)
     }
 
-
-    inner class BudgetsAdapter(val budgets: List<Budget>, val itemLayout: Int) : RecyclerView.Adapter<BudgetScreen.BudgetViewHolder>() {
+    inner class BudgetsAdapter(val budgets: List<Budget>, val itemLayout: Int, var action: OnBudgetItemClickListener) : RecyclerView.Adapter<BudgetScreen.BudgetViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BudgetViewHolder {
            val view = LayoutInflater.from(parent.context).inflate(itemLayout, parent, false)
 
@@ -79,7 +77,7 @@ class BudgetScreen : Fragment() {
 
         override fun onBindViewHolder(holder: BudgetViewHolder, position: Int) {
             val budget = budgets.get(position)
-            holder.updateBudget(budget)
+            holder.updateBudget(budget, action)
         }
 
     }
@@ -89,14 +87,6 @@ class BudgetScreen : Fragment() {
      */
     fun getDeviceId() : String {
         return Settings.Secure.getString(requireContext().contentResolver, Settings.Secure.ANDROID_ID)
-    }
-
-    internal fun fetchBudgets() {
-        var budgetsCollection = DatabaseFunctions.firestore.collection("Budget")
-        budgetsCollection.addSnapshotListener {value: QuerySnapshot?, error: FirebaseFirestoreException? ->
-            var innerBudgets = value?.toObjects(Budget::class.java)
-            _budgets.postValue(innerBudgets)
-        }
     }
 
     internal var budgets : MutableLiveData<List<Budget>>
@@ -110,9 +100,18 @@ class BudgetScreen : Fragment() {
         /**
          * Updates row in recycler view with passed in budget
          */
-        fun updateBudget (budget : Budget) {
+        fun updateBudget (budget: Budget, action: OnBudgetItemClickListener) {
+
             tvBudgetName.text = budget.name
-            tvAmountRemaining.text = budget.amount.toString()
+            tvAmountRemaining.text = "$ ${budget.amount}"
+
+            itemView.setOnClickListener {
+                action.onItemClick(budget, adapterPosition)
+            }
         }
+    }
+
+    override fun onItemClick(budget: Budget, position: Int) {
+        findNavController().navigate(R.id.action_BudgetScreen_to_ViewBudget)
     }
 }
