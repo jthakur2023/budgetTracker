@@ -28,6 +28,10 @@ class BudgetScreen : Fragment(), OnBudgetItemClickListener{
     private var _budgets = MutableLiveData<List<Budget>>()
     private var budgetList = ArrayList<Budget>()
 
+    companion object {
+        var selectedBudget: Budget = Budget()
+    }
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -112,6 +116,7 @@ class BudgetScreen : Fragment(), OnBudgetItemClickListener{
     }
 
     override fun onItemClick(budget: Budget, position: Int) {
+        selectedBudget = budget
         findNavController().navigate(R.id.action_BudgetScreen_to_ViewBudget)
     }
 }

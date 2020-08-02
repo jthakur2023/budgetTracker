@@ -53,7 +53,6 @@ class AddBudget : Fragment() {
         try {
         budget.name = ptBudgetName.text.toString()
         budget.amount = ptBudget.text.toString().toDouble()
-        budget.income = ptIncome.text.toString().toDouble()
         budget.interval = enumValueOf(spTimeInterval.selectedItem.toString().toUpperCase())
         budget.deviceId = getDeviceId()
         }

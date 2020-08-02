@@ -9,4 +9,8 @@
     <string name="budget">Budget</string>
     <string name="income">Income</string>
     <string name="remaining">Remaining</string>
+    <string name="remainingWithColon">Remaining:</string>
+    <string name="addExpense">Add Expense</string>
+    <string name="cost">Cost</string>
+    <string name="delete">Delete</string>
 </resources>

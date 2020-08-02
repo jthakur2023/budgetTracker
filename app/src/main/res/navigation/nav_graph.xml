@@ -33,5 +33,8 @@
         android:name="org.uc.budgettracker.ui.ViewBudget"
         android:label="View Budget"
         tools:layout="@layout/view_budget">
+        <action
+            android:id="@+id/action_ViewBudget_Done"
+            app:destination="@id/BudgetScreen" />
     </fragment>
 </navigation>
