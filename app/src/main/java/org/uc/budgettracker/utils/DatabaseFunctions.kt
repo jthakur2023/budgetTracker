@@ -94,6 +94,13 @@ class DatabaseFunctions {
             return budgets
         }
 
+        /**
+         * Fetches expenses associated with the passed budget
+         *
+         * @param budgetId String value representing unique id attached to budget
+         *
+         * @return Mutable live data collection of the queried expenses
+         */
         fun fetchExpenses(budgetId: String): MutableLiveData<List<Expense>> {
             var expenses = MutableLiveData<List<Expense>>()
             var expensesCollection = firestore.collection(expensesCollectionPath).whereEqualTo("budgetId", budgetId)

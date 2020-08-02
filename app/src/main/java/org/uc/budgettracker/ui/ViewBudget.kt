@@ -48,7 +48,7 @@ class ViewBudget() : Fragment() {
         }
 
         view.findViewById<Button>(R.id.btnAddExpense).setOnClickListener {
-            basicAlert(view)
+            addExpense(view)
         }
 
         view.findViewById<Button>(R.id.btnDeleteBudget).setOnClickListener {
@@ -96,7 +96,7 @@ class ViewBudget() : Fragment() {
         return result
     }
 
-    fun basicAlert(view: View){
+    fun addExpense(view: View){
         val builder = AlertDialog.Builder(context)
         val inflater = layoutInflater
         val dialogLayout = inflater.inflate(R.layout.add_expense, null)
